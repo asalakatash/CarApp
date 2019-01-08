@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Owner {
@@ -20,7 +21,7 @@ public class Owner {
   private long ownerid;
   private String firstname, lastname;
  
-  
+  @JsonManagedReference
   @OneToMany(cascade = CascadeType.ALL, mappedBy="owner")
   @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   @JsonIgnore

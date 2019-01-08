@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -26,6 +27,7 @@ public class Car {
   
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "owner")
+  @JsonBackReference
   @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   private Owner owner;
   
